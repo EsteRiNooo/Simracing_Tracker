@@ -56,9 +56,12 @@ export default function LapTable() {
           </tbody>
         </table>
       </div>
-      <Button onClick={addLap} className="mt-2">
+      <button
+        onClick={addLap}
+        className="mt-2 px-3 py-1 bg-accent text-black rounded"
+      >
         Добавить запись
-      </Button>
+      </button>
     </section>
   );
 }
