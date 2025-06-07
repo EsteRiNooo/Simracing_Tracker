@@ -1,6 +1,4 @@
 import { usePersistentState } from '../hooks/usePersistentState';
-import { Checkbox } from '@shadcn/ui/checkbox';
-import { Button } from '@shadcn/ui/button';
 
 interface Task {
   text: string;
