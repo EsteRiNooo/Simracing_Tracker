@@ -1,6 +1,4 @@
 import { usePersistentState } from '../hooks/usePersistentState';
-import { Input } from '@shadcn/ui/input';
-import { Button } from '@shadcn/ui/button';
 
 interface Lap {
   date: string;
@@ -45,8 +43,8 @@ export default function LapTable() {
             {laps.map((lap, i) => (
               <tr key={i} className="odd:bg-gray-700">
                 {(['date', 'sim', 'track', 'car', 'session', 'time', 'notes'] as (keyof Lap)[]).map((field) => (
-                                  <td className="p-1" key={field}>
-                    <Input
+                  <td className="p-1" key={field}>
+                    <input
                       value={lap[field]}
                       onChange={(e) => updateLap(i, field, e.target.value)}
                       className="w-full bg-gray-700 rounded p-1 text-white"
