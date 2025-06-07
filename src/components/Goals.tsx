@@ -1,5 +1,4 @@
 import { usePersistentState } from '../hooks/usePersistentState';
-import { Checkbox } from '@shadcn/ui/checkbox';
 
 const goals = [
   'Достичь DR B в GT7',
@@ -23,9 +22,10 @@ export default function Goals() {
       <ul className="space-y-1">
         {goals.map((goal, i) => (
           <li key={goal} className="flex items-center space-x-2">
-            <Checkbox
+            <input
+              type="checkbox"
               checked={checked[i] || false}
-              onCheckedChange={() => toggle(i)}
+              onChange={() => toggle(i)}
               className="accent-accent"
             />
             <span>{goal}</span>
