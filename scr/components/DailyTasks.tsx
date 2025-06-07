@@ -1,4 +1,6 @@
 import { usePersistentState } from '../hooks/usePersistentState';
+import { Checkbox } from '@shadcn/ui/checkbox';
+import { Button } from '@shadcn/ui/button';
 
 interface Task {
   text: string;
@@ -36,10 +38,9 @@ export default function DailyTasks() {
       <ul className="space-y-1">
         {tasks.map((task, i) => (
           <li key={i} className="flex items-center space-x-2">
-            <input
-              type="checkbox"
+            <Checkbox
               checked={task.done}
-              onChange={() => toggle(i)}
+              onCheckedChange={() => toggle(i)}
               className="accent-accent"
             />
             <span className={task.done ? 'line-through text-gray-400' : undefined}>
@@ -48,9 +49,8 @@ export default function DailyTasks() {
           </li>
         ))}
       </ul>
-      <button onClick={refresh} className="mt-2 px-3 py-1 bg-accent rounded">
+      <Button onClick={refresh} className="mt-2">
         Обновить дейлики
-      </button>
+      </Button>
     </section>
   );
-}
