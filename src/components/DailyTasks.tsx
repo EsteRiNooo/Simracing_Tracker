@@ -38,9 +38,10 @@ export default function DailyTasks() {
       <ul className="space-y-1">
         {tasks.map((task, i) => (
           <li key={i} className="flex items-center space-x-2">
-            <Checkbox
+            <input
+              type="checkbox"
               checked={task.done}
-              onCheckedChange={() => toggle(i)}
+              onChange={() => toggle(i)}
               className="accent-accent"
             />
             <span className={task.done ? 'line-through text-gray-400' : undefined}>
@@ -49,9 +50,12 @@ export default function DailyTasks() {
           </li>
         ))}
       </ul>
-      <Button onClick={refresh} className="mt-2">
+      <button
+        onClick={refresh}
+        className="mt-2 px-3 py-1 bg-accent text-black rounded"
+      >
         Обновить дейлики
-      </Button>
+      </button>
     </section>
   );
 }
