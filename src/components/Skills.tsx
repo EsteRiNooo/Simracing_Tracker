@@ -1,5 +1,4 @@
 import { usePersistentState } from '../hooks/usePersistentState';
-import { Input } from '@shadcn/ui/input';
 
 interface Skill {
   name: string;
@@ -30,7 +29,7 @@ export default function Skills() {
         {skills.map((skill, i) => (
           <li key={skill.name} className="flex items-center space-x-2">
             <span className="w-40">{skill.name}</span>
-            <Input
+            <input
               type="number"
               value={skill.level}
               onChange={(e) => update(i, Number(e.target.value))}
