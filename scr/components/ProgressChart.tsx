@@ -1,5 +1,7 @@
 import { usePersistentState } from '../hooks/usePersistentState';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { Input } from '@shadcn/ui/input';
+import { Button } from '@shadcn/ui/button';
 
 interface Data {
   week: string;
@@ -41,7 +43,7 @@ export default function ProgressChart() {
         {data.map((d, i) => (
           <div key={i} className="flex items-center space-x-2">
             <span>Неделя {d.week}</span>
-            <input
+            <Input
               type="number"
               value={d.progress}
               onChange={(e) => update(i, Number(e.target.value))}
@@ -52,9 +54,9 @@ export default function ProgressChart() {
           </div>
         ))}
       </div>
-      <button onClick={addPoint} className="mt-2 px-3 py-1 bg-accent rounded">
+      <Button onClick={addPoint} className="mt-2">
         Добавить неделю
-      </button>
+      </Button>
     </section>
   );
 }
