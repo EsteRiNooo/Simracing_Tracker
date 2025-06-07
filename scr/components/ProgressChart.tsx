@@ -8,6 +8,11 @@ interface Data {
   progress: number;
 }
 
+interface Skill {
+  name: string;
+  level: number;
+}
+
 export default function ProgressChart() {
   const [data, setData] = usePersistentState<Data[]>('progress', [
     { week: '1', progress: 20 },
@@ -15,10 +20,16 @@ export default function ProgressChart() {
     { week: '3', progress: 40 },
     { week: '4', progress: 50 },
   ]);
+  const [skills] = usePersistentState<Skill[]>('skills', []);
+
+  const averageSkill =
+    skills.length > 0
+      ? skills.reduce((sum, s) => sum + s.level, 0) / skills.length
+      : 0;
 
   const addPoint = () => {
     const next = (data.length + 1).toString();
-    setData([...data, { week: next, progress: 50 }]);
+    setData([...data, { week: next, progress: Math.round(averageSkill) }]);
   };
 
   const update = (index: number, value: number) => {
